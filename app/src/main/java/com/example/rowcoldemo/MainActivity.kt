@@ -20,6 +20,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.layout.FirstBaseline
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,11 +50,10 @@ fun TextCell(text: String, modifier: Modifier = Modifier) {
 }
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
-    Column(horizontalAlignment = Alignment.End,
-        modifier = modifier.width(250.dp)) {
-        TextCell("1")
-        TextCell("2")
-        TextCell("3")
+    Row {
+        TextCell("1", Modifier.weight(weight = 0.2f, fill = true))
+        TextCell("2", Modifier.weight(weight = 0.4f, fill = true))
+        TextCell("3", Modifier.weight(weight = 0.3f, fill = true))
     }
 }
 
